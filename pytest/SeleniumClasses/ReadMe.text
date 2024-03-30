@@ -1,0 +1,31 @@
+# For Windows
+    chrome_driver_path = 'SeleniumClasses/chromedriver.exe'
+    chrome_options = webdriver.ChromeOptions()
+    service = Service(executable_path=chrome_driver_path)
+    driver = webdriver.Chrome(service=service, options=chrome_options)
+
+# For Linux
+
+Check you have installed latest version of chrome brwoser-> chromium-browser -version
+If not, install latest version of chrome sudo apt-get install chromium-browser
+get appropriate version of chrome driver from here
+Unzip the chromedriver.zip
+Move the file to /usr/bin directory sudo mv chromedriver /usr/bin
+Goto /usr/bin directory cd /usr/bin
+Now, you would need to run something like sudo chmod a+x chromedriver to mark it executable.
+finally you can execute the code.
+
+from selenium import webdriver
+
+driver = webdriver.Chrome()
+driver.get("http://www.google.com")
+print driver.page_source.encode('utf-8')
+driver.quit()
+
+# to run in parallel mode make sure you have pytest-xdist plugin if not please install it
+pip install pytest-xdist
+py.test <classname> <no. of thread>
+
+
+
+
